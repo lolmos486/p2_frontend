@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
 <body>
-    <nav class="navbar HAS-SHADOW IS-WHITE">
+    <nav class="navbar has-shadow is-dark">
         <!--logo / brand -->
         <div class="navbar-brand">
             <a class="navbar-item">
-                <img src="/.png" alt="site-logo" style="max-height: 200px" class="py-2">
+                <img src="/covers/readAlots.png" alt="site-logo" style="max-height: 100px" class="py-3">
             </a>
 
             <a class="navbar-burger" id="burger">
@@ -25,25 +25,70 @@
         <div class="navbar-menu" id="nav-links">
             <div class="navbar-end">
                 <a class="navbar-item">Home</a>
-                <a class="navbar-item">Reviews</a>
+                <a class="navbar-item" href="/reviews.html">Reviews</a>
         </div>
     </nav>
 
+        <div class="tabs is-centered">
+            <ul>
+            <li class="is-active"><a>New</a></li>
+            <li><a>Classics</a></li>
+            <li><a>Autobiographies</a></li>
+            <li><a>Fiction</a></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+              <div class="content has-text-centered">
+                This site is for reading die-hard fans. Here at read-A-lots you will get to read thousands of your favorite books by some of the widely-read and eminent authors and poets of all time. All you need to do is subscribe and begin reading a lot! You can also write your own reviews, see reviews by others, and create a list of the books you've read and will be reading in the future.
+              </div>
+            </div>
+          </div>
+
+
+          <section class="section">
+            <div class="columns is-one-fifth">
+              <form class="box is-shadowless hero is-link">
+                  <h2 class="title is-size-5">Login</h2>
+                  <div class="field">
+                    <label class="label">Username</label>
+                    <div class="control">
+                      <input id="username-input" class="input" type="text">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control">
+                      <input id="password-input" class="input" type="password">
+                    </div>
+                  </div>
+                  
+                  <button id="login-btn" class="button is-white">Sign in</button>  
+              </form>
+            </div>
+              
+           
+      
+        </section>
     
+
     <!--product info-->
     <section class="section">
         <div class="container">
             <div class="columns is-vcentered is-multiline">             
                 <div class="column is-6-tablet is-12-desktop has-text-centered">
                     <h1 class="is-size-3-mobile is-size-1-desktop title">Book of the Month</h1>
-                    <h2 class="is-size-3-mobile is-size-2 subtitle">Book Title</h2>
-                        <img src="/covers/IncredibleJourney.jpg" alt="book image" class="px-3">
+                    <!-- <h2 class="is-size-3-mobile is-size-2 subtitle">Book Title</h2> -->
+                        <figure class="image is-2by1">
+                            <img src="/covers/IncredibleJourney.jpg" id="bom" alt="book image" class="px-3">
+                        </figure>
                             <p>Fans of Old Yeller, Where the Red Fern Grows, and Shiloh will love this timeless classic about two dogs and a cat that embark on a journey to return to their owner and inspired the movie Homeward Bound.
                                 An inquisitive Labrador retriever, friendly bull terrier, and courageous Siamese cat set out through the Canadian wilderness to find their owner in this truly “incredible” adventure. Instinct tells them that the way home lies to the west and together the three house pets face hunger, the natural elements, and wild forest animals as they make their way home to the family they love.
                                 This beloved classic that inspired the movie Homeward Bound has captured the hearts of generations of readers. The lengths to which these three animals will go for each other and for their owner make for a thrilling and thoroughly unforgettable tale.
                             </p>
                     <div class="has-text-centered">
-                        <button class="button mt-5 is-primary is-rounded" id="review">Give a Review</button>
+                        <button class="button mt-5 is-link is-rounded" id="review">Write a Review</button>
                     </div>
                 </div>
             </div>
@@ -53,38 +98,50 @@
     <!-- 2nd Section -->
     <section class="section">
         <div class="container">
+            <div class="columns is-vcentered is-multiline">             
+                <div class="column is-6-tablet is-12-desktop has-text-centered">
+                    <h2 class="is-size-3-mobile is-size-1-desktop title">Trending Now</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3rd Section -->
+    <section class="section">
+        <div class="container">
             <div class="columns is-vcentered is-multiline">
                 <!--if we don't add "is-3" to any, columns default to equal size-->
                 <div class="column is-6-tablet is-4-desktop has-text-centered">
-                    <h1 class="is-size-3-mobile is-size-1-desktop title">Book 1</h1>
-                    <h2 class="is-size-3-mobile is-size-2 subtitle">Book Title</h2>
-                    <img src="/covers/WrinkleinTime.jpg" alt="book image" class="px-3">
+                    <!-- <h1 class="is-size-3-mobile is-size-1-desktop title">Book 1</h1> -->
+                    <!-- <h2 class="is-size-3-mobile is-size-2 subtitle">Book Title</h2> -->
+                        <img src="/covers/WrinkleinTime.jpg" alt="book image" class="px-3">
                         <p>A Wrinkle in Time, winner of the Newbery Medal in 1963, is the story of the adventures in space and time of Meg, Charles Wallace, and Calvin O'Keefe (athlete, student, and one of the most popular boys in high school). They are in search of Meg's father, a scientist who disappeared while engaged in secret work for the government on the tesseract problem.</p>
                     <div class="has-text-centered">
-                        <button class="button mt-5 is-primary is-rounded" id="review">Give a Review</button>
+                        <button class="button mt-5 is-link is-rounded" id="review">Write a Review</button>
                     </div>
                 </div>
+
                 <div class="column is-6-tablet is-4-desktop has-text-centered">
-                    <h1 class="is-size-3-mobile is-size-1-desktop title">Book 2</h1>
-                    <h2 class="is-size-3-mobile is-size-2 subtitle">Book Title</h2>
+                    <!-- <h1 class="is-size-3-mobile is-size-1-desktop title">Book 2</h1> -->
+                    <!-- <h2 class="is-size-3-mobile is-size-2 subtitle">Book Title</h2> -->
                     <img src="/covers/RedFern.jpg" alt="book image" class="px-3">
                         <p>Read the beloved classic that captures the powerful bond between man and man’s best friend. This edition also includes a special note to readers from Newbery Medal winner and Printz Honor winner Clare Vanderpool.
                         Billy has long dreamt of owning not one, but two, dogs. So when he’s finally able to save up enough money for two pups to call his own—Old Dan and Little Ann—he’s ecstatic. It doesn’t matter that times are tough; together they’ll roam the hills of the Ozarks.
                         </p>
                     <div class="has-text-centered">
-                        <button class="button mt-5 is-primary is-rounded" id="review">Give a Review</button>
+                        <button class="button mt-5 is-link is-rounded" id="review">Write a Review</button>
                     </div>
                 </div>
                 
                 <div class="column is-6-tablet is-4-desktop has-text-centered">
-                    <h1 class="is-size-3-mobile is-size-1-desktop title">Book 3</h1>
-                    <h2 class="is-size-3-mobile is-size-2 subtitle">Book Title</h2>
+                    <!-- <h1 class="is-size-3-mobile is-size-1-desktop title">Book 3</h1> -->
+                    <!-- <h2 class="is-size-3-mobile is-size-2 subtitle">Book Title</h2> -->
                     <img src="/covers/CalloftheWild.jpg" alt="book image" class="px-3">
                         <p>This triumphant tale of survival follows the adventures of Buck, half-St. Bernard and half-Scottish sheepdog, who is forced into the brutal life of a sled-dog during the heady days of the Alaska gold rush.
                         The Call of the Wild, considered by many to be Jack London's greatest novel, is a gripping survival story of a heroic dog that, thrust into the brutal life of the Alaska Gold Rush, ultimately faces a choice between living in man's world and returning to nature. 
                         </p>
                     <div class="has-text-centered">
-                        <button class="button mt-5 is-primary is-rounded" id="review">Give a Review</button>
+                        <button class="button mt-5 is-link is-rounded" id="review">Write a Review</button>
                 </div>
 
             </div>
@@ -96,22 +153,26 @@
 
     <section class="section">
         <div class="container has-text-centered">
-            <div class="column is-5-tablet">
+            <div class="column is-5-tablet is-8-desktop has-text-centered">
                 <!-- ******message box ********** -->
                 <div class="message">
                     <div class="message-header">
-                        <p>"Quotes"</p>
+                        <p>Quotes</p>
                     </div>
                     
-                    <div class="message-body">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non ipsa veritatis alias beatae totam iste reprehenderit inventore eligendi natus dolore.</p>
-                        
+                    <div class="message-body">                      
+                        <p>"Be yourself; everyone else is already taken." - Oscar Wilde</p> 
+                        <p>"Two things are infinite: the universe and human stupidity; and I'm not sure about the universe." - Albert Einstein</p>
+                        <p>"So many books, so little time." Frank Zappa</p>
+                        <p>"A room without books is like a body without a soul." Marcus Tullius Cicero</p>
+                        <p>"You know you're in love when you can't fall asleep because reality is finally better thatn your dreams." - Dr. Seuss</p>
+                        <p>"It's not the size of the dog in the fight, it's the size of the fight in the dog." - Mark Twain</p>                       
                     </div>                            
                 </div>
             </div>
                         
         </div>
-    </section> -->       
+    </section>       
 
                     
             
@@ -130,7 +191,7 @@
        
 
 
-    
+    <script src="home.css"></script>
     <script src="home.js"></script>
 </body>
 </html>
