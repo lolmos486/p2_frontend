@@ -1,8 +1,9 @@
+const url = "127.0.0.1";
 
 let logoutBtn = document.getElementById('logout');
 logoutBtn.addEventListener('click', async (e) => 
     {
-        let result = await fetch('http://127.0.0.1:8080/logout', {
+        let result = await fetch(`'http://${url}:8080/logout`, {
             'method': 'POST', 
             'credentials': 'include',
             'headers':{
@@ -65,7 +66,26 @@ typeDDown.forEach((item) => {
 let getBooksBtn = document.querySelector('#fetch-books');
 getBooksBtn.addEventListener('click', getRes);
 
-
+function getCookie(name) {
+    var dc = document.cookie;
+    var prefix = name + "=";
+    var begin = dc.indexOf("; " + prefix);
+    if (begin == -1) {
+        begin = dc.indexOf(prefix);
+        if (begin != 0) return null;
+    }
+    else
+    {
+        begin += 2;
+        var end = document.cookie.indexOf(";", begin);
+        if (end == -1) {
+        end = dc.length;
+        }
+    }
+    // because unescape has been deprecated, replaced with decodeURI
+    //return unescape(dc.substring(begin + prefix.length, end));
+    return decodeURI(dc.substring(begin + prefix.length, end));
+} 
 
 async function getRes() {    
     try{
@@ -86,8 +106,9 @@ async function getRes() {
                 break;
             }
         }
-
-        let getBooks = await fetch(`http://127.0.0.1:8080/fm/manybooks?filter-status=${status}&filter-type=${type}`, {
+        
+        // console.log(sessionStorage.username);
+        let getBooks = await fetch(`http://${url}:8080/users/${sessionStorage.username}`, {
                 'credentials': 'include',
                 'method': 'GET'
         })
@@ -108,31 +129,26 @@ async function getRes() {
 function addBookToTable(books){
     let bookTable = document.querySelector('#books-table tbody');
     bookTable.innerHTML = '';
-    for (re of books.books) {
+    for (book of books.books) {
         let row = document.createElement('tr');
         let title = document.createElement('td');
-        if (re.status === 'pending'){
-            title.innerHTML = `<input class="checkbox" type="checkbox" name="selected" id="check${re.book_id}">`;
-        }
-        else {
-            title.innerHTML = '';
-        }
+        
         let subtitle = document.createElement('td');
-        subtitle.innerHTML = re.book_id;        
+        subtitle.innerHTML = book.book_id;        
         let author = document.createElement('td');
-        author.innerHTML = re.author;
+        author.innerHTML = book.author;
         let descrip = document.createElement('td');
-        descrip.innerHTML = re.description;
+        descrip.innerHTML = book.description;
         // let type = document.createElement('td');
-        // type.innerHTML = re.type;
+        // type.innerHTML = book.type;
                
         let picture = document.createElement('td');
-        if (re.picture != "None") {
-            picture.innerHTML = `<button class="button" name ="picture-btn" id="${re.picture}">picture</button>`;
-            console.log(re.picture)
+        if (book.picture != "None") {
+            picture.innerHTML = `<button class="button" name ="picture-btn" id="${book.picture}">picture</button>`;
+            console.log(book.picture)
             picture.addEventListener('click', (e) => {
                 modal.classList.add('is-active')
-                fetch(`http://127.0.0.1:8080/get-picture/${e.target.id}`)
+                fetch(`http://${url}:8080/get-picture/${e.target.id}`)
                     .then(response => response.blob())
                     .then(imageBlob => {
                         const imgObjURL = URL.createObjectURL(imageBlob);
@@ -193,7 +209,7 @@ let addBooksBtn = document.getElementById('add-books');
 addBooksBtn.addEventListener('click', async () => {
     console.log('clicked add-books');
     let selected = getSelectedBooks();
-    let result = await fetch('http://127.0.0.1:8080/fm/manybooks', {
+    let result = await fetch(`http://${url}:8080/fm/manybooks`, {
             'method': 'PUT', 
             'credentials': 'include',
             'headers': {
@@ -214,7 +230,7 @@ let deleteBooksBtn = document.getElementById('delete-books');
 deleteBooksBtn.addEventListener('click', async () => {
     console.log('clicked delete-books');
     let selected = getSelectedBooks();
-    let result = await fetch('http://127.0.0.1:8080/fm/manybooks', {
+    let result = await fetch(`http://${url}:8080/fm/manybooks`, {
             'method': 'PUT', 
             'credentials': 'include',
             'headers': {
