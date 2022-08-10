@@ -1,4 +1,5 @@
 const url = "127.0.0.1";
+let books;
 
 let logoutBtn = document.getElementById('logout');
 logoutBtn.addEventListener('click', async (e) => 
@@ -89,32 +90,22 @@ function getCookie(name) {
 
 async function getRes() {    
     try{
-        let statuses = document.querySelectorAll('#status-menu a');
-        let status;
-        for (let choice of statuses) {
-            if (choice.classList.contains('is-active')) {
-                status = `${choice.id}`;
-                break;
-            }
-        }
-
-        let types = document.querySelectorAll('#type-menu a');
-        let type;
-        for (let choice of types) {
-            if (choice.classList.contains('is-active')) {
-                type = `${choice.id}`;
-                break;
-            }
-        }
         
-        // console.log(sessionStorage.username);
+        console.log(sessionStorage.username);
         let getBooks = await fetch(`http://${url}:8080/users/${sessionStorage.username}`, {
                 'credentials': 'include',
                 'method': 'GET'
         })
-        if (getBooks.status === 201) {
+        console.log(getBooks);
+        if (getBooks.status === 200) {
             let booksJson = await getBooks.json();
-            addBookToTable(booksJson);
+            console.log("insied status 200")
+            console.log(booksJson);
+            
+            books = booksJson.reviews
+            addBookToTable(books);
+            console.log("books array")
+            console.log(books)
         }
         else if (getBooks.status === 401) {
             window.location.href = "./login.html"
@@ -129,42 +120,44 @@ async function getRes() {
 function addBookToTable(books){
     let bookTable = document.querySelector('#books-table tbody');
     bookTable.innerHTML = '';
-    for (book of books.books) {
+    for (book of books) {
+        console.log(book.author);
         let row = document.createElement('tr');
         let title = document.createElement('td');
+        title.innerHTML = book.title;
         
-        let subtitle = document.createElement('td');
-        subtitle.innerHTML = book.book_id;        
+        let isbn = document.createElement('td');
+        isbn.innerHTML = book.isbn;        
         let author = document.createElement('td');
         author.innerHTML = book.author;
         let descrip = document.createElement('td');
-        descrip.innerHTML = book.description;
+        descrip.innerHTML = book.review;
         // let type = document.createElement('td');
         // type.innerHTML = book.type;
                
-        let picture = document.createElement('td');
-        if (book.picture != "None") {
-            picture.innerHTML = `<button class="button" name ="picture-btn" id="${book.picture}">picture</button>`;
-            console.log(book.picture)
-            picture.addEventListener('click', (e) => {
-                modal.classList.add('is-active')
-                fetch(`http://${url}:8080/get-picture/${e.target.id}`)
-                    .then(response => response.blob())
-                    .then(imageBlob => {
-                        const imgObjURL = URL.createObjectURL(imageBlob);
-                        console.log(imgObjURL);
-                        pictureImg.src = imgObjURL
-                    })
-            })
-        }
-        else {
-            picture.innerHTML = '';
-        }
+        // let picture = document.createElement('td');
+        // if (book.picture != "None") {
+        //     picture.innerHTML = `<button class="button" name ="picture-btn" id="${book.picture}">picture</button>`;
+        //     console.log(book.picture)
+        //     picture.addEventListener('click', (e) => {
+        //         modal.classList.add('is-active')
+        //         fetch(`http://${url}:8080/get-picture/${e.target.id}`)
+        //             .then(response => response.blob())
+        //             .then(imageBlob => {
+        //                 const imgObjURL = URL.createObjectURL(imageBlob);
+        //                 console.log(imgObjURL);
+        //                 pictureImg.src = imgObjURL
+        //             })
+        //     })
+        // }
+        // else {
+        //     picture.innerHTML = '';
+        // }
     
         
-
+        // row.appendChild(isbn);
         row.appendChild(title);
-        row.appendChild(subtitle);
+        
         row.appendChild(author);
         // row.appendChild(type);
         row.appendChild(descrip);
