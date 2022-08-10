@@ -9,6 +9,121 @@
     <title>My Bookshelf</title>
 </head>
 <body>
+    <section class="hero is-success is-fullheight">
+        <nav class="navbar has-shadow is-white">
+          <!--logo / brand -->
+          <div class="navbar-brand">
+              <a class="navbar-item">
+                  <img src="/covers/readAlots.png" alt="site-logo" style="max-height: 100px" class="py-2">
+              </a>        
+          </div>
+    
+          <!-- <div class="navbar-menu" id="nav-links">
+              <div class="navbar-end">
+                  <a class="navbar-item" href = "home.html">Home</a>              
+          </div> -->
+      </nav>
+    
+          <h1 class="has-text-centered is-size-1">My Bookshelf</h1>    
+
+            
+    
+          <div class="section">
+              <div class="container">
+                  <div class="dropdown" id="status-ddown">
+                      <div class="dropdown-trigger">
+                        <button class="button is-info is-light pt-5 pb-5" aria-haspopup="true" aria-controls="dropdown-menu" id="stat-btn">
+                          <span>
+                              <p>Books</p>
+                              <p id="status-text">read</p>
+                          </span>
+                        </button>
+                      </div>
+                      <div class="dropdown-menu" id="status-menu" role="menu">
+                        <div class="dropdown-content">
+                          <a class="dropdown-item" id="added">
+                            Added
+                          </a>
+                          <a class="dropdown-item" id="deleted">
+                            Deleted
+                          </a>
+                          <a class="dropdown-item is-active" id="pending">
+                            Pending
+                          </a>
+                          <a class="dropdown-item" id="all-statuses">
+                              All
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dropdown" id="type-ddown">
+                      <div class="dropdown-trigger">
+                        <button class="button is-info is-light pt-5 pb-5" aria-haspopup="true" aria-controls="dropdown-menu" id="type-btn">
+                          <span>
+                              <p>Will</p>
+                              <p id="type-text">be reading</p>
+                          </span>
+                          <span class="icon is-small">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                          </span>
+                        </button>
+                      </div>
+                      <div class="dropdown-menu" id="type-menu" role="menu">
+                        <div class="dropdown-content">
+                          <a class="dropdown-item" id="new">
+                            New
+                          </a>
+                          <a class="dropdown-item" id="classics">
+                            Classics
+                          </a>
+                          <a class="dropdown-item" id="autobiographies">
+                            Autobiographies
+                          </a>
+                          <a class="dropdown-item" id="fiction">
+                            Fiction
+                          </a>
+                          <a class="dropdown-item is-active" id="all-types">
+                              All
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="button is-info is-info pt-5 pb-5" id="fetch-books">Add to my List</button>
+                  <table id="books-table" class="table" width="100%">
+                      <thead>
+                          <tr class="has-text-centered">
+                            <th>Title</th>
+                            <th>Subtitle</th>
+                            <th>Author</th>
+                            <th>Description</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+    
+                      </tbody>
+                  </table>
+                  <div class="has-text-right">
+                    <button class="button is-info has-text-weight-bold" id="add-books">Add this book</button>
+                    <button class="button is-danger has-text-weight-bold" id="delete-books">Delete from list</button>
+                  </div>
+              </div>
+          </div>
+         
+    
+          <section class="section has-text-centered">
+            <button class="button is-info is-light" id="logout">Logout</button>
+          </section>
+    </section> 
+       <!-- modal -->
+       <div class="modal">
+        <div class="modal-background">
+            <div class="modal-content has-background-white py-5 px-5">
+                <h3 class="title mb-6 text-is-dark">Book Image</h3>
+                <img id="picture-img" src="" />
+              </div>
+        </div>
+      </div>
+      <!-- <script src="my-books.js"></script> -->
     
     
 </body>
