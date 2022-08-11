@@ -17,7 +17,7 @@ let reviewTbody = document.getElementById('review-tbody');
 document.addEventListener('DOMContentLoaded', async () => {
 
     try {
-        let res = await fetch(`http://127.0.0.1:8080/book/${isbn}/reviews`, {
+        let res = await fetch(`http://127.0.0.1:8080/books/${isbn}`, {
         // 'mode': 'no-cors',
         'credentials': 'include',
         'method': 'GET',
@@ -31,9 +31,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
 
-        console.log(data.review)
+        console.log(data);
+        document.getElementById("title").innerHTML = data.title;
+        document.getElementById("author").innerHTML = data.author;
 
-        addReviewsToTable(data.review);
+        addReviewsToTable(data.reviews);
+
+
     
     } catch(err) {
         console.log(err);
@@ -46,8 +50,8 @@ function addReviewsToTable(review_obj){
 
         let row = document.createElement('tr');
 
-        let isbnCell = document.createElement('td');
-        isbnCell.innerHTML = review.isbn;
+        // let isbnCell = document.createElement('td');
+        // isbnCell.innerHTML = review.isbn;
 
         let reviewCell = document.createElement('td');
         reviewCell.innerHTML = review.review;
@@ -58,14 +62,14 @@ function addReviewsToTable(review_obj){
         let authorCell = document.createElement('td');
         authorCell.innerHTML = review.author;
 
-        row.appendChild(isbnCell);
+        // row.appendChild(isbnCell);
         row.appendChild(reviewCell);
         row.appendChild(ratingCell);
         row.appendChild(authorCell);
 
         // console.log(isbnCell)
 
-        document.getElementById("title").innerHTML = 'Explorers Guide'
+
 
         reviewTbody.appendChild(row);
 
