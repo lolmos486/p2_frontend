@@ -7,6 +7,7 @@ loginButton.addEventListener('click', async (e) => {
     e.preventDefault()
     
     let res = await fetch(`http://127.0.0.1:8080/login`, {
+        // 'mode': 'no-cors',
         'credentials': 'include',
         'method': 'POST',
         'headers': {
