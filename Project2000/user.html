@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Book Reviews</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script defer src="/user.js"></script>
+  </head>
+  <body>
+
+<!-- NAV -->
+
+<nav class="navbar is-light" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://bulma.io">
+      <img src="covers/live_library_logo_3.png" width="140" height="28"
+      >
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbar" class="navbar-menu">
+    <div class="navbar-start">
+      <div class="navbar-item">
+
+        <div class="field has-addons">
+          <p class="control is-expanded">
+            <input class="input" type="text" id="isbn-input" name="isbn" placeholder="Enter ISBN">
+          </p>
+          <p class="control">
+            <a class="button is-info" id="search-btn" href="/book-reviews-1.html">
+              Search Books
+            </a>
+          </p>
+        </div> 
+
+      </div>
+      <div class="navbar-item">
+        <div class="field has-addons">
+          <p class="control is-expanded">
+            <input class="input" type="text" id="username-input" name="isbn" placeholder="Enter Username">
+          </p>
+          <p class="control">
+            <a class="button is-info" id="search-usn-btn" href="/user.html">
+            <!-- <a class="button is-info" id="search-usn-btn" href=""> -->
+              Search Users
+            </a>
+          </p>
+        </div>  
+      </div>
+      
+    </div>
+
+    <div class="navbar-end">
+      
+      <div class="navbar-item">
+        <div class="buttons">
+          
+          <a class="button is-light" href="/login.html">
+            <strong>Log in</strong>
+          </a>
+          <a class="button is-light" id="logout-btn">
+            Log out
+          </a>
+        </div>
+      </div>
+
+      
+      
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+<!-- CONTENT -->
+
+    <div class="columns is-one-fifth">
+        <div class="column">
+            <div class="box is-shadowless">
+                <h1 id="title" class="title is-3">Reviews by </h1>
+
+                <h1 id="author" class="title is-6 is-italic">Member since </h1>
+
+                
+                    <figure class="image is-500x500">
+                        <img src="/covers/Portrait_Placeholder.png">
+                    </figure>
+            </div>
+        </div>
+        <div class="column is-four-fifths">
+            <div class="block m-5">
+
+                <table class="table is-fullwidth is-hoverable">
+                    <thead>
+                        <tr>
+
+                          <th>ISBN</th>
+                          <th>Review</th>
+                          <th>Rating</th>
+                          <th>User</th>
+
+                        </tr>
+                    </thead>
+                    <tbody id="review-tbody">
+                    <var></var>
+                    </tbody>
+                </table>
+              </div>  
+
+
+
+        </div>
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,23 +1,39 @@
-let isbn = 9780786966912
+
 let reviewTbody = document.getElementById('review-tbody');
 
-// let isbn = document.getElementById("ibsn").value
+// define variables and click events for navbar 
 
-// function XX()
-// {
-//     first2 = document.getElementById("ibsn").value;
+let usn = sessionStorage.getItem("username")
 
-//     // console.log(first2)
+let isbnInput = document.getElementById('isbn-input');
+let searchButton = document.getElementById('search-btn')
 
-// } 
+let usernameInput = document.getElementById('username-input');
+let searchUsernameButton = document.getElementById('search-usn-btn');
 
-// console.log(first2)
 
+searchButton.addEventListener("click", function(){
+    sessionStorage.setItem("isbn", isbnInput.value)
+});
+
+let isbn = sessionStorage.getItem("isbn")
+
+
+
+searchUsernameButton.addEventListener("click", function(){
+    sessionStorage.setItem("username", usernameInput.value)
+});
+
+let username = sessionStorage.getItem("username")
+
+
+
+// populate table
 
 document.addEventListener('DOMContentLoaded', async () => {
 
     try {
-        let res = await fetch(`http://127.0.0.1:8080/book/${isbn}/reviews`, {
+        let res = await fetch(`http://127.0.0.1:8080/users/${usn}`, {
         // 'mode': 'no-cors',
         'credentials': 'include',
         'method': 'GET',
@@ -31,9 +47,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
 
-        console.log(data.review)
+        console.log(data);
+        document.getElementById("title").innerHTML += data.username;
+        document.getElementById("author").innerHTML += data.joined;
 
-        addReviewsToTable(data.review);
+        console.log(data.favorite_genre)
+
+        addReviewsToTable(data.reviews);
+
+
     
     } catch(err) {
         console.log(err);
@@ -65,7 +87,7 @@ function addReviewsToTable(review_obj){
 
         // console.log(isbnCell)
 
-        document.getElementById("title").innerHTML = 'Explorers Guide'
+
 
         reviewTbody.appendChild(row);
 
