@@ -26,9 +26,7 @@ searchUsernameButton.addEventListener("click", function(){
 let username = sessionStorage.getItem("username")
 console.log(username)
 
-<<<<<<< HEAD
-console.log(isbn)
-=======
+
 
 let logoutBtn = document.getElementById('logout-btn');
 logoutBtn.addEventListener('click', async (e) => 
@@ -49,7 +47,7 @@ logoutBtn.addEventListener('click', async (e) =>
 )
 
 
->>>>>>> main
+
 
 
 
