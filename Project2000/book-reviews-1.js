@@ -24,7 +24,7 @@ searchUsernameButton.addEventListener("click", function(){
 let username = sessionStorage.getItem("username")
 console.log(username)
 
-
+console.log(isbn)
 
 
 
@@ -39,7 +39,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         'credentials': 'include',
         'method': 'GET',
         'headers': {
-            'Content-Type': 'application/json'}});
+            'Access-Control-Allow-Origin':'*',
+            'Content-Type': 'application/json'
+
+        
+        
+        }});
         
 
         
@@ -76,13 +81,13 @@ function addReviewsToTable(review_obj){
         let ratingCell = document.createElement('td');
         ratingCell.innerHTML = review.rating;
         
-        let authorCell = document.createElement('td');
-        authorCell.innerHTML = review.author;
+        let reviewerCell = document.createElement('td');
+        reviewerCell.innerHTML = review.reviewer;
 
         // row.appendChild(isbnCell);
         row.appendChild(reviewCell);
         row.appendChild(ratingCell);
-        row.appendChild(authorCell);
+        row.appendChild(reviewerCell);
 
         // console.log(isbnCell)
 
