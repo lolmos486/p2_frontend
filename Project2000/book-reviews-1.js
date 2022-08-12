@@ -24,11 +24,6 @@ searchUsernameButton.addEventListener("click", function(){
 });
 
 let username = sessionStorage.getItem("username")
-console.log(username)
-
-<<<<<<< HEAD
-console.log(isbn)
-=======
 
 let logoutBtn = document.getElementById('logout-btn');
 logoutBtn.addEventListener('click', async (e) => 
@@ -48,8 +43,6 @@ logoutBtn.addEventListener('click', async (e) =>
     }
 )
 
-
->>>>>>> main
 
 
 
@@ -106,8 +99,13 @@ function addReviewsToTable(review_obj){
         let ratingCell = document.createElement('td');
         ratingCell.innerHTML = review.rating;
         
+
         let reviewerCell = document.createElement('td');
-        reviewerCell.innerHTML = review.reviewer;
+        reviewerCell.innerHTML = `<a>${review.reviewer}</a>`;
+        reviewerCell.addEventListener('click', async (e) => {
+            await fetch(`http://${url}:8080/users/${review.reviewer}`)
+        })
+
 
         // row.appendChild(isbnCell);
         row.appendChild(reviewCell);
