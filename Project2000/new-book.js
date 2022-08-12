@@ -34,6 +34,7 @@ submitBtn.addEventListener('click', async (E) => {
         form.append('author', author.value);
         form.append('edition', edition.value);
         form.append('genre', genre.value);
+        sessionStorage.setItem("isbn", isbn.value)
 
         let result = await fetch(`http://${url}:${port}/book`, {
             'credentials': 'include',
@@ -41,7 +42,7 @@ submitBtn.addEventListener('click', async (E) => {
             'body': form
         })
         if (result.status = 201){
-            window.location.href = `./book.html`;
+            window.location.href = `./book-reviews-1.html`;
         }
         else if (result.status == 400) {
             let data = await result.json();
