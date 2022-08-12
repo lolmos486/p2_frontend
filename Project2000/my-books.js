@@ -4,7 +4,7 @@ let books;
 let logoutBtn = document.getElementById('logout');
 logoutBtn.addEventListener('click', async (e) => 
     {
-        let result = await fetch(`'http://${url}:8080/logout`, {
+        let result = await fetch(`http://${url}:8080/logout`, {
             'method': 'POST', 
             'credentials': 'include',
             'headers':{
