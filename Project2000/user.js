@@ -1,6 +1,9 @@
+
 let reviewTbody = document.getElementById('review-tbody');
 
-//declare variables for search buttons
+// define variables and click events for navbar 
+
+let usn = sessionStorage.getItem("username")
 
 let isbnInput = document.getElementById('isbn-input');
 let searchButton = document.getElementById('search-btn')
@@ -22,10 +25,6 @@ searchUsernameButton.addEventListener("click", function(){
 });
 
 let username = sessionStorage.getItem("username")
-console.log(username)
-
-
-
 
 
 
@@ -34,7 +33,7 @@ console.log(username)
 document.addEventListener('DOMContentLoaded', async () => {
 
     try {
-        let res = await fetch(`http://127.0.0.1:8080/books/${isbn}`, {
+        let res = await fetch(`http://127.0.0.1:8080/users/${usn}`, {
         // 'mode': 'no-cors',
         'credentials': 'include',
         'method': 'GET',
@@ -49,8 +48,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
         console.log(data);
-        document.getElementById("title").innerHTML = data.title;
-        document.getElementById("author").innerHTML = data.author;
+        document.getElementById("title").innerHTML += data.username;
+        document.getElementById("author").innerHTML += data.joined;
+
+        console.log(data.favorite_genre)
 
         addReviewsToTable(data.reviews);
 
@@ -67,8 +68,8 @@ function addReviewsToTable(review_obj){
 
         let row = document.createElement('tr');
 
-        // let isbnCell = document.createElement('td');
-        // isbnCell.innerHTML = review.isbn;
+        let isbnCell = document.createElement('td');
+        isbnCell.innerHTML = review.isbn;
 
         let reviewCell = document.createElement('td');
         reviewCell.innerHTML = review.review;
@@ -79,7 +80,7 @@ function addReviewsToTable(review_obj){
         let authorCell = document.createElement('td');
         authorCell.innerHTML = review.author;
 
-        // row.appendChild(isbnCell);
+        row.appendChild(isbnCell);
         row.appendChild(reviewCell);
         row.appendChild(ratingCell);
         row.appendChild(authorCell);
