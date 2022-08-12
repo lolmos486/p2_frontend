@@ -1,3 +1,5 @@
+const url = "127.0.0.1";
+
 let reviewTbody = document.getElementById('review-tbody');
 
 //declare variables for search buttons
@@ -24,7 +26,30 @@ searchUsernameButton.addEventListener("click", function(){
 let username = sessionStorage.getItem("username")
 console.log(username)
 
+<<<<<<< HEAD
 console.log(isbn)
+=======
+
+let logoutBtn = document.getElementById('logout-btn');
+logoutBtn.addEventListener('click', async (e) => 
+    {
+        let result = await fetch(`http://${url}:8080/logout`, {
+            'method': 'POST', 
+            'credentials': 'include',
+            'headers':{
+                'Access-Control-Allow-Origin': '*'
+            }
+        })
+        e.preventDefault();
+        if (result.status === 201) {
+            window.location.href = "./login.html"
+
+        }
+    }
+)
+
+
+>>>>>>> main
 
 
 
