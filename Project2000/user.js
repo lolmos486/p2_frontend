@@ -108,7 +108,12 @@ function addReviewsToTable(review_obj){
         let row = document.createElement('tr');
 
         let isbnCell = document.createElement('td');
-        isbnCell.innerHTML = `<p>${review.title}</p><p>(${review.isbn})</p>`;
+        isbnCell.setAttribute('id', `${review.isbn}`);
+        isbnCell.innerHTML = `<p id="${review.isbn}">${review.title}</p><p id="${review.isbn}">(${review.isbn})</p>`;
+        isbnCell.addEventListener('click', (e) => {
+            sessionStorage.setItem("isbn", e.target.id);
+            window.location.href = "./book-reviews-1.html";
+        })
 
         let reviewCell = document.createElement('td');
         reviewCell.innerHTML = review.review;

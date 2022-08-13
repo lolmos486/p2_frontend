@@ -21,9 +21,9 @@ loginButton.addEventListener('click', async (e) => {
         })
     })
     
+    let data = await res.json();
 
     if (res.status == 200) {
-        let data = await res.json();
 
         sessionStorage.setItem("username", data.username)
 
@@ -35,7 +35,8 @@ loginButton.addEventListener('click', async (e) => {
     }
 
     else if (res.status != 200) {
-        console.log("Unsuccessful login")
+        let loginErrs = document.getElementById('login-error-msg')
+        loginErrs.innerHTML = data.message
     }
 
 
