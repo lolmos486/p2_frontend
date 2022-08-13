@@ -7,7 +7,6 @@ let loginBtn = document.getElementById('login-btn')
 
 window.addEventListener('load', (e) => {
     console.log('in window load block');
-    console.log(sessionStorage.getItem('username'))
     if (sessionStorage.getItem('username') != null){
         signUp.classList.add('is-hidden');
         myPage.classList.remove('is-hidden');
@@ -54,6 +53,8 @@ searchButton.addEventListener("click", function(){
 });
 
 let isbn = sessionStorage.getItem("isbn")
+console.log("in book-reviews-1")
+console.log(sessionStorage.getItem("isbn"))
 
 
 
@@ -121,9 +122,11 @@ function addReviewsToTable(review_obj){
         
 
         let reviewerCell = document.createElement('td');
-        reviewerCell.innerHTML = `<a>${review.reviewer}</a>`;
-        reviewerCell.addEventListener('click', async (e) => {
-            await fetch(`http://${url}:8080/users/${review.reviewer}`)
+        reviewCell.setAttribute('id', `${review.reviewer}`)
+        reviewerCell.innerHTML = `<a id="${review.reviewer}">${review.reviewer}</a>`;
+        reviewerCell.addEventListener('click', (e) => {
+            sessionStorage.setItem("username", e.target.id)
+            window.location.href = "./user.html"
         })
 
 
