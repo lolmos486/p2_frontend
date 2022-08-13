@@ -8,97 +8,71 @@
     <script defer src="/registration.js"></script>
   </head>
   <body>
+      
     
+<nav class="navbar has-shadow is-dark" role="navigation" aria-label="main navigation">
 
-    
-      <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="https://bulma.io">
-            <img src="" width="140" height="28"
-            >
-          </a>
-      
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-      
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
-            <a class="navbar-item" href="/index.html">
-              About
-            </a>
-      
+  <div class="navbar-brand">
+    <a href="./home.html" class="navbar-item">
+        <img src="/covers/live_library_logo_3.png" alt="site-logo" style="max-height: 75px" class="py-3">
+    </a>
 
+    <a class="navbar-burger" id="burger">
+        <span></span>
+        <span></span>   
+        <span></span>
+    </a> 
+  </div>
+
+  <div class="navbar-menu" id="nav-links">
+      <div class="navbar-end">
+          <a class="navbar-item" href="/index.html">About</a>
+      </div>
       
-            <a class="navbar-item" href="/registration.html">
-              Create Account
-            </a>
-      
-          
-          </div>
-      
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons">
-                <a class="button is-info" href="/login.html" id="login-btn">
-                  <strong>Log in</strong>
-                </a>
-                <a class="button is-light" id="logout-btn">
-                  Log out
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
+  </div>
+</nav>
     
     <section class="hero is-link is-fullheight">
       
-        <div class="columns">
+        <columns class="columns">
           <!-- <div class="container has-text-centered">  -->
 
           
-            <div class="column is-one-quarter">
-                <form class="box is-shadowless">
-                    <h2 class="title is-size-3">Sign Up</h2>
-                    <div class="field">
-                      <label class="label">Username</label>
-                      <div class="control">
-                        <input class="input" type="text" placeholder="Username" id="username-input">
-                      </div>
+            <column class="column is-one-quarter"></column>
+            <column class="column is-one-half">
+              <form class="box is-shadowless">
+                  <h2 class="title is-size-3">Sign Up</h2>
+                  <div class="field">
+                    <label class="label">Username</label>
+                    <div class="control">
+                      <input class="input" type="text" placeholder="Username" id="username-input">
                     </div>
-                    <div class="field">
-                      <label class="label">Password</label>
-                      <div class="control">
-                        <input class="input" type="password" placeholder="********" id="password-input">
-                      </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Favorite Genre</label>
-                        <div class="control">
-                          <input class="input" type="text" placeholder="First Name" id="firstname-input">
-                        </div>
-                    </div>
-                    <a id="register-submit-btn" class="button is-light" href="/login.html">
-                      <strong>Sign Up</strong>
-                    </a>
-
                   </div>
+                  <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control">
+                      <input class="input" type="password" placeholder="********" id="password-input">
+                    </div>
+                  </div>
+                  <div class="field">
+                      <label class="label">Favorite Genre</label>
+                      <div class="control">
+                        <input class="input" type="text" placeholder="favorite genre" id="firstname-input">
+                      </div>
+                  </div>
+                  <a id="register-submit-btn" class="button is-light" href="/login.html">
+                    <strong>Sign Up</strong>
+                  </a>
 
+                </div>
+                  <!-- <button href="/login.html" id="sign-up-btn" class="button is-success">Sign Up</button> -->
 
+              </form>
+            </column>
+            <column class="column is-one-quarter"></column>
+          </columns>
 
-                    
-                    <!-- <button href="/login.html" id="sign-up-btn" class="button is-success">Sign Up</button> -->
-
-                </form>
-                
-            </div>
-            <div class="column is-one-fifth">
-
-            </div>
+            
           </div>
           </div>
     </section>

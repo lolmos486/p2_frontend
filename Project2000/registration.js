@@ -8,7 +8,6 @@ let emailInput = document.getElementById('email-input');
 let registrationSubmitButton = document.getElementById('register-submit-btn');
 
 
-
 registrationSubmitButton.addEventListener('click', async () => {
     // let selectedRadioButton;
     // for (let radioBtn of roleButtons) {
