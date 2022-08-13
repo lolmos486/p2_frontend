@@ -1,4 +1,21 @@
 const url = "127.0.0.1";
+let myPage = document.getElementById('my-lib');
+let signUp = document.getElementById('create-account');
+
+window.addEventListener('load', (e) => {
+    console.log('in window load block');
+    console.log(sessionStorage.getItem('username'))
+    if (sessionStorage.getItem('username') != null){
+        signUp.classList.add('is-hidden');
+        myPage.classList.remove('is-hidden');
+    } else {
+        signUp.classList.remove('is-hidden');
+        myPage.classList.add('is-hidden');
+    }
+})
+
+
+
 let logoutBtn = document.getElementById('logout-btn');
 logoutBtn.addEventListener('click', async (e) => 
     {
@@ -9,13 +26,15 @@ logoutBtn.addEventListener('click', async (e) =>
                 'Access-Control-Allow-Origin': '*'
             }
         })
+        sessionStorage.clear();
         e.preventDefault();
         if (result.status === 201) {
-            window.location.href = "./login.html"
+            window.location.href = "./home.html"
 
         }
     }
 )
+
 let reviewTbody = document.getElementById('review-tbody');
 
 // define variables and click events for navbar 
@@ -86,7 +105,7 @@ function addReviewsToTable(review_obj){
         let row = document.createElement('tr');
 
         let isbnCell = document.createElement('td');
-        isbnCell.innerHTML = review.isbn;
+        isbnCell.innerHTML = `<p>${review.title}</p><p>(${review.isbn})</p>`;
 
         let reviewCell = document.createElement('td');
         reviewCell.innerHTML = review.review;

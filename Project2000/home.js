@@ -1,4 +1,22 @@
 const url = "127.0.0.1";
+
+let myPage = document.getElementById('my-lib');
+let signUp = document.getElementById('create-account');
+
+window.addEventListener('load', (e) => {
+    console.log('in window load block');
+    console.log(sessionStorage.getItem('username'))
+    if (sessionStorage.getItem('username') != null){
+        signUp.classList.add('is-hidden');
+        myPage.classList.remove('is-hidden');
+    } else {
+        signUp.classList.remove('is-hidden');
+        myPage.classList.add('is-hidden');
+    }
+})
+
+
+
 let logoutBtn = document.getElementById('logout-btn');
 logoutBtn.addEventListener('click', async (e) => 
     {
@@ -9,9 +27,10 @@ logoutBtn.addEventListener('click', async (e) =>
                 'Access-Control-Allow-Origin': '*'
             }
         })
+        sessionStorage.clear();
         e.preventDefault();
         if (result.status === 201) {
-            window.location.href = "./login.html"
+            window.location.href = "./home.html"
 
         }
     }
@@ -52,26 +71,13 @@ const modal = document.querySelector('.modal');
 
 let signupButton = document.querySelector('create-account');
 
-signupButton.addEventListener('click', () => {
-   modal.classList.add('is-active'); 
-});
+// signupButton.addEventListener('click', () => {
+//    modal.classList.add('is-active'); 
+// });
 
-modalBg.addEventListener('click', () => {
-    modal.classList.remove('is-active');
-});
+// modalBg.addEventListener('click', () => {
+//     modal.classList.remove('is-active');
+// });
 
 
-let myPage = document.querySelector('my-lib');
-let signUp = document.querySelector('create-account');
-
-document.addEventListener('DOMContentLoaded', (e) => {
-    signUp.classList.add('is-hidden');
-    
-    if (sessionStorage.getItem('user') == null){
-        
-        myPage.classList.add('is-hidden');
-    } else {
-        signUp.classList.add('is-hidden');
-    }
-})
 

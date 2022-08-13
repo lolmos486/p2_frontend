@@ -1,7 +1,24 @@
 const url = "127.0.0.1";
 let books;
 
-let logoutBtn = document.getElementById('logout');
+let myPage = document.getElementById('my-lib');
+let signUp = document.getElementById('create-account');
+
+window.addEventListener('load', (e) => {
+    console.log('in window load block');
+    console.log(sessionStorage.getItem('username'))
+    if (sessionStorage.getItem('username') != null){
+        signUp.classList.add('is-hidden');
+        myPage.classList.remove('is-hidden');
+    } else {
+        signUp.classList.remove('is-hidden');
+        myPage.classList.add('is-hidden');
+    }
+})
+
+
+
+let logoutBtn = document.getElementById('logout-btn');
 logoutBtn.addEventListener('click', async (e) => 
     {
         let result = await fetch(`http://${url}:8080/logout`, {
@@ -11,9 +28,10 @@ logoutBtn.addEventListener('click', async (e) =>
                 'Access-Control-Allow-Origin': '*'
             }
         })
+        sessionStorage.clear();
         e.preventDefault();
         if (result.status === 201) {
-            window.location.href = "./login.html"
+            window.location.href = "./home.html"
 
         }
     }
@@ -124,7 +142,7 @@ function addBookToTable(books){
         console.log(book.author);
         let row = document.createElement('tr');
         let title = document.createElement('td');
-        title.innerHTML = book.title;
+        title.innerHTML = `<p>${book.title}</p><p>(${book.isbn})</p>`;
         
         let isbn = document.createElement('td');
         isbn.innerHTML = book.isbn;        

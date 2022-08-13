@@ -9,19 +9,39 @@
     <title>My Bookshelf</title>
 </head>
 <body>
-    <section class="hero is-success is-fullheight">
-        <nav class="navbar has-shadow is-dark">
-          <!--logo / brand -->
-              <a class="navbar-item">
-                  <img src="/covers/live_library_logo_3.png" alt="site-logo" style="max-height: 75px" class="py-3">
-              </a>        
+  <nav class="navbar has-shadow is-dark" role="navigation" aria-label="main navigation">
+
+    <div class="navbar-brand">
+      <a class="navbar-item">
+          <img src="/covers/live_library_logo_3.png" alt="site-logo" style="max-height: 75px" class="py-3">
+      </a>
+
+      <a class="navbar-burger" id="burger">
+          <span></span>
+          <span></span>   
+          <span></span>
+      </a> 
+    </div>
+
+    <div class="navbar-menu" id="nav-links">
+        <div class="navbar-end">
+            <a class="navbar-item" href="/index.html">About</a>
+
+            <a class="navbar-item" id="create-account" href="/registration.html">Create Account</a> 
+            <a href="./my-books.html" class="navbar-item" id="my-lib">My Library</a>
+        </div>
+        <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-link" href="/login.html">
+                <strong>Log in</strong>
+              </a>
+              <a class="button is-light" id="logout-btn">
+                Log out
+              </a>
+            </div>
           </div>
-    
-          <!-- <div class="navbar-menu" id="nav-links">
-              <div class="navbar-end">
-                  <a class="navbar-item" href = "home.html">Home</a>              
-          </div> -->
-      </nav>
+    </div>
+</nav>
     
           <h1 class="has-text-centered is-size-1">My Bookshelf</h1>    
 
@@ -109,9 +129,7 @@
           </div>
          
     
-          <section class="section has-text-centered">
-            <button class="button is-info is-light" id="logout">Logout</button>
-          </section>
+         
     </section> 
        <!-- modal -->
        <div class="modal">

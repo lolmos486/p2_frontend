@@ -1,3 +1,5 @@
+const url = "127.0.0.1";
+
 let usernameInput = document.getElementById('username-input');
 let passwordInput = document.getElementById('password-input');
 let loginButton = document.getElementById('login-btn');
@@ -6,7 +8,7 @@ let loginButton = document.getElementById('login-btn');
 loginButton.addEventListener('click', async (e) => {
     e.preventDefault()
     
-    let res = await fetch(`http://127.0.0.1:8080/login`, {
+    let res = await fetch(`http://${url}:8080/login`, {
         // 'mode': 'no-cors',
         'credentials': 'include',
         'method': 'POST',

@@ -1,5 +1,41 @@
 const url = "127.0.0.1";
 
+let myPage = document.getElementById('my-lib');
+let signUp = document.getElementById('create-account');
+
+window.addEventListener('load', (e) => {
+    console.log('in window load block');
+    console.log(sessionStorage.getItem('username'))
+    if (sessionStorage.getItem('username') != null){
+        signUp.classList.add('is-hidden');
+        myPage.classList.remove('is-hidden');
+    } else {
+        signUp.classList.remove('is-hidden');
+        myPage.classList.add('is-hidden');
+    }
+})
+
+
+
+let logoutBtn = document.getElementById('logout-btn');
+logoutBtn.addEventListener('click', async (e) => 
+    {
+        let result = await fetch(`http://${url}:8080/logout`, {
+            'method': 'POST', 
+            'credentials': 'include',
+            'headers':{
+                'Access-Control-Allow-Origin': '*'
+            }
+        })
+        sessionStorage.clear();
+        e.preventDefault();
+        if (result.status === 201) {
+            window.location.href = "./home.html"
+
+        }
+    }
+)
+
 let reviewTbody = document.getElementById('review-tbody');
 
 //declare variables for search buttons
@@ -26,26 +62,6 @@ searchUsernameButton.addEventListener("click", function(){
 let username = sessionStorage.getItem("username")
 
 
-let logoutBtn = document.getElementById('logout-btn');
-logoutBtn.addEventListener('click', async (e) => 
-    {
-        let result = await fetch(`http://${url}:8080/logout`, {
-            'method': 'POST', 
-            'credentials': 'include',
-            'headers':{
-                'Access-Control-Allow-Origin': '*'
-            }
-        })
-        e.preventDefault();
-        if (result.status === 201) {
-            window.location.href = "./login.html"
-
-        }
-    }
-)
-
-
-
 
 
 
@@ -54,7 +70,7 @@ logoutBtn.addEventListener('click', async (e) =>
 document.addEventListener('DOMContentLoaded', async () => {
 
     try {
-        let res = await fetch(`http://127.0.0.1:8080/books/${isbn}`, {
+        let res = await fetch(`http://${url}:8080/books/${isbn}`, {
         // 'mode': 'no-cors',
         'credentials': 'include',
         'method': 'GET',
@@ -83,7 +99,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     } catch(err) {
         console.log(err);
-    }
+    } 
 }
 );
 
