@@ -119,13 +119,13 @@ async function getRes() {
         console.log(getBooks);
         if (getBooks.status === 200) {
             let booksJson = await getBooks.json();
-            console.log("insied status 200")
-            console.log(booksJson);
+            // console.log("insied status 200")
+            // console.log(booksJson);
             
             books = booksJson.reviews
             addBookToTable(books);
-            console.log("books array")
-            console.log(books)
+            // console.log("books array")
+            // console.log(books)
         }
         else if (getBooks.status === 401) {
             window.location.href = "./login.html"
@@ -144,7 +144,12 @@ function addBookToTable(books){
         console.log(book.author);
         let row = document.createElement('tr');
         let title = document.createElement('td');
-        title.innerHTML = `<p>${book.title}</p><p>(${book.isbn})</p>`;
+        title.setAttribute('id', `${book.isbn}`);
+        title.innerHTML = `<p id="${book.isbn}">${book.title}</p><p id="${book.isbn}">(${book.isbn})</p>`;
+        title.addEventListener('click', (e) => {
+            sessionStorage.setItem("isbn", e.target.id);
+            window.location.href = "./book-reviews-1.html";
+        })
         
         let isbn = document.createElement('td');
         isbn.innerHTML = book.isbn;        

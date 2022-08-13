@@ -22,8 +22,6 @@ window.addEventListener('load', (e) => {
 })
 
 
-
-
 logoutBtn.addEventListener('click', async (e) => 
     {
         let result = await fetch(`http://${url}:8080/logout`, {
