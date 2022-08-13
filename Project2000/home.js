@@ -50,6 +50,8 @@ const reviewButton = document.querySelector('#review');
 const modalBg = document.querySelector('.modal-background');
 const modal = document.querySelector('.modal');
 
+let signupButton = document.querySelector('create-account');
+
 signupButton.addEventListener('click', () => {
    modal.classList.add('is-active'); 
 });
@@ -59,4 +61,17 @@ modalBg.addEventListener('click', () => {
 });
 
 
+let myPage = document.querySelector('my-lib');
+let signUp = document.querySelector('create-account');
+
+document.addEventListener('DOMContentLoaded', (e) => {
+    signUp.classList.add('is-hidden');
+    
+    if (sessionStorage.getItem('user') == null){
+        
+        myPage.classList.add('is-hidden');
+    } else {
+        signUp.classList.add('is-hidden');
+    }
+})
 

@@ -27,7 +27,8 @@
             <div class="navbar-start">
               <a class="navbar-item" href="/index.html">About</a>
     
-              <a class="navbar-item" href="/registration.html">Create Account</a> 
+              <a class="navbar-item" id="create-account" href="/registration.html">Create Account</a> 
+              <a href="./my-books.html" class="navbar-item" id="my-lib">My Library</a>
               
               <!-- <a class="navbar-item" href="/reviews.html">Reviews</a> -->
             </div>
@@ -102,11 +103,12 @@
     <!--product info-->
         <section class="section"> 
             <div class="container">
-                <div class="columns is-vcentered is-multiline">             
-                    <div class="column is-6-tablet is-12-desktop">
+                <div class="columns is-vcentered is-multiline">     
+                    <div class="column is-3-desktop"></div>        
+                    <div class="column is-12-tablet is-6-desktop">
                         <h1 class="is-size-3-mobile is-size-1-desktop title has-text-centered">Book of the Month</h1>
                         <!-- <h2 class="is-size-3-mobile is-size-2 subtitle">Book Title</h2> -->
-                            <figure class="image is-2by1">
+                            <figure class="image">
                                 <img src="/covers/IncredibleJourney.jpg" id="bom" alt="book image" class="px-3">
                             </figure>
                                 <p>Fans of Old Yeller, Where the Red Fern Grows, and Shiloh will love this timeless classic about two dogs and a cat that embark on a journey to return to their owner and inspired the movie Homeward Bound.
@@ -117,7 +119,10 @@
                             <button class="button mt-5 is-link is-rounded" id="review">Write a Review</button>
                         </div>
 
+                    
+
                     </div>
+                    <div class="column is-3-desktop"></div>  
                 </div>
             </div>
         </section>
