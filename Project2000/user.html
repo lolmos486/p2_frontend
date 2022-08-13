@@ -10,72 +10,73 @@
   <body>
 
 <!-- NAV -->
+    
+    
+<nav class="navbar has-shadow is-dark" role="navigation" aria-label="main navigation">
 
-<nav class="navbar is-light" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
-      <img src="covers/live_library_logo_3.png" width="140" height="28"
-      >
+    <a class="navbar-item">
+        <img src="/covers/live_library_logo_3.png" alt="site-logo" style="max-height: 75px" class="py-3">
     </a>
 
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
+    <a class="navbar-burger" id="burger">
+        <span></span>
+        <span></span>   
+        <span></span>
+    </a> 
   </div>
 
-  <div id="navbar" class="navbar-menu">
-    <div class="navbar-start">
-      <div class="navbar-item">
+  <div class="navbar-menu" id="nav-links">
+      <div class="navbar-end">
+          <a class="navbar-item" href="/index.html">About</a>
 
-        <div class="field has-addons">
-          <p class="control is-expanded">
-            <input class="input" type="text" id="isbn-input" name="isbn" placeholder="Enter ISBN">
-          </p>
-          <p class="control">
-            <a class="button is-info" id="search-btn" href="/book-reviews-1.html">
-              Search Books
-            </a>
-          </p>
-        </div> 
-
+          <a class="navbar-item" id="create-account" href="/registration.html">Create Account</a> 
+          <a href="./my-books.html" class="navbar-item" id="my-lib">My Library</a>
       </div>
       <div class="navbar-item">
-        <div class="field has-addons">
-          <p class="control is-expanded">
-            <input class="input" type="text" id="username-input" name="isbn" placeholder="Enter Username">
-          </p>
-          <p class="control">
-            <a class="button is-info" id="search-usn-btn" href="/user.html">
-            <!-- <a class="button is-info" id="search-usn-btn" href=""> -->
-              Search Users
+          <div class="buttons">
+            <a class="button is-link" href="/login.html">
+              <strong>Log in</strong>
             </a>
-          </p>
-        </div>  
-      </div>
-      
-    </div>
-
-    <div class="navbar-end">
-      
-      <div class="navbar-item">
-        <div class="buttons">
-          
-          <a class="button is-light" href="/login.html">
-            <strong>Log in</strong>
-          </a>
-          <a class="button is-light" id="logout-btn">
-            Log out
-          </a>
+            <a class="button is-light" id="logout-btn">
+              Log out
+            </a>
+          </div>
         </div>
-      </div>
-
-      
-      
-    </div>
   </div>
 </nav>
+
+<!-- CONTENT -->
+
+<columns class="columns">
+
+  <column class="column is-half">
+    <div class="field has-addons">
+      <p class="control is-expanded">
+        <input class="input" type="text" id="isbn-input" name="isbn" placeholder="Enter ISBN">
+      </p>
+      <p class="control">
+        <a class="button is-info" id="search-btn" href="/book-reviews-1.html">
+          Search Books
+        </a>
+      </p>
+    </div> 
+    </column>
+    <column class="column is-half">
+    <div class="field has-addons">
+      <p class="control is-expanded">
+        <input class="input" type="text" id="username-input" name="isbn" placeholder="Enter Username">
+      </p>
+      <p class="control">
+        <a class="button is-info" id="search-usn-btn" href="/user.html">
+        <!-- <a class="button is-info" id="search-usn-btn" href=""> -->
+          Search Users
+        </a>
+      </p>
+    </div>  
+
+  </column>
+</columns> 
 
 
 
@@ -103,7 +104,7 @@
                     <thead>
                         <tr>
 
-                          <th>ISBN</th>
+                          <th><p>Title</p><p>ISBN</p></th>
                           <th>Review</th>
                           <th>Rating</th>
                           <th>User</th>
