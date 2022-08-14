@@ -9,7 +9,7 @@
     <link rel="/home.css">
 </head>
 <body>
-    <nav class="navbar has-shadow is-dark" role="navigation" aria-label="main navigation">
+    <nav class="navbar has-shadow is-light" role="navigation" aria-label="main navigation">
 
         <div class="navbar-brand">
           <a href="./home.html" class="navbar-item">
@@ -32,7 +32,7 @@
             </div>
             <div class="navbar-item">
                 <div class="buttons">
-                  <a class="button is-link" href="/login.html" id="login-btn">
+                  <a class="button is-info" href="/login.html" id="login-btn">
                     <strong>Log in</strong>
                   </a>
                   <a class="button is-light" id="logout-btn">
@@ -42,6 +42,36 @@
               </div>
         </div>
     </nav>
+
+    <columns class="columns m-3">
+
+        <column class="column is-one-fifth">
+          <div class="field has-addons">
+            <p class="control is-expanded">
+              <input class="input" type="text" id="isbn-input" name="isbn" placeholder="Enter ISBN">
+            </p>
+            <p class="control">
+              <a class="button is-info" id="search-btn" href="/book-reviews-1.html">
+                Search Books
+              </a>
+            </p>
+          </div> 
+          </column>
+          <column class="column is-one-fifth">
+          <div class="field has-addons">
+            <p class="control is-expanded">
+              <input class="input" type="text" id="username-input" name="isbn" placeholder="Enter Username">
+            </p>
+            <p class="control">
+              <a class="button is-info" id="search-usn-btn" href="/user.html">
+              <!-- <a class="button is-info" id="search-usn-btn" href=""> -->
+                Search Users
+              </a>
+            </p>
+          </div>  
+      
+        </column>
+      </columns> 
 
         <div class="tabs is-centered">
             <ul>

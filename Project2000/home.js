@@ -84,4 +84,27 @@ const modal = document.querySelector('.modal');
 // });
 
 
+let isbnInput = document.getElementById('isbn-input');
+let searchButton = document.getElementById('search-btn')
+
+let usernameInput = document.getElementById('username-input');
+let searchUsernameButton = document.getElementById('search-usn-btn');
+
+
+searchButton.addEventListener("click", function(){
+    sessionStorage.setItem("isbn", isbnInput.value)
+});
+
+let isbn = sessionStorage.getItem("isbn")
+console.log("in book-reviews-1")
+console.log(sessionStorage.getItem("isbn"))
+
+
+
+searchUsernameButton.addEventListener("click", function(){
+    sessionStorage.setItem("username", usernameInput.value)
+});
+
+let username = sessionStorage.getItem("username")
+
 
